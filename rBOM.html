@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>rBOM</title>
+  </head>
+  <body>
+    <div class="resize">
+      <h2 class="banner">Banner goes here</h2>
+    </div>
+    <!-- Tab links -->
+    <div class="tab">
+      <button class="tablinks" onclick="openObject(event, 'Vision')">
+        Vision
+      </button>
+      <button class="tablinks" onclick="openObject(event, 'Principles')">
+        Principles
+      </button>
+      <button class="tablinks" onclick="openObject(event, 'Value Streams')">
+        Value Streams
+      </button>
+      <button class="tablinks" onclick="openObject(event, 'Product Hallmarks')">
+        Product Hallmarks
+      </button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="Vision" class="tabcontent">
+      <h3>Vision</h3>
+      <p>Insert the DIAT Vision here.</p>
+    </div>
+
+    <div id="Principles" class="tabcontent">
+      <h3>Principles</h3>
+      <p>Insert the DIAT Principles here.</p>
+    </div>
+
+    <div id="Value Streams" class="tabcontent">
+      <h3>Value Streams</h3>
+      <p>Insert the DIAT Value Streams here.</p>
+    </div>
+
+    <div id="Product Hallmarks" class="tabcontent">
+      <h3>Product Hallmarks</h3>
+      <p>Insert the DIAT Product Hallmarks here.</p>
+    </div>
+
+    <br />
+
+    <div style="text-align: center">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+    <script>
+      function openObject(evt, object) {
+        var i, tabcontent, tablinks;
+
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        document.getElementById(object).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+
+      var slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("tabcontent");
+        var dots = document.getElementsByClassName("dot");
+
+        var tablinks = document.getElementsByClassName("tablinks");
+
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+          tablinks[i].className = tablinks[i].className.replace(" active", "");          
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        tablinks[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+      }
+
+    </script>
+  </body>
+</html>
